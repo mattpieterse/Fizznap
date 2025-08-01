@@ -73,4 +73,8 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // PermissionX
+    
+    implementation(libs.permissionx)
 }
