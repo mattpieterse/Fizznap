@@ -33,16 +33,16 @@ android {
             )
         }
     }
-    
+
     buildFeatures {
         viewBinding = true
     }
-    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -50,7 +50,7 @@ android {
 
 // - Libraries
 
-dependencies {    
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -68,13 +68,22 @@ dependencies {
     implementation(libs.firebase.crashlytics.ndk)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.perf)
-    
+
     // Hilt
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
     // PermissionX
-    
+
     implementation(libs.permissionx)
+
+    // Google Play Services
+
+    implementation(libs.play.services.auth)
+    implementation(libs.play.services.base)
+
+    // Biometric Authentication
+    
+    implementation(libs.androidx.biometric)
 }
