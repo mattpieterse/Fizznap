@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- Application -->
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <!-- Features -->
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false" /> <!-- Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+            android:name="android.permission.READ_MEDIA_IMAGES"
+            tools:targetApi="33" /> <!-- Android 13 -->
+    <uses-permission
+            android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED"
+            tools:targetApi="34" /> <!-- Android 14 -->
+    <uses-permission
+            android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+            android:maxSdkVersion="28" /> <!-- Android 10 -->
+    <uses-permission
+            android:name="android.permission.READ_EXTERNAL_STORAGE"
+            android:maxSdkVersion="32" />
 
     <application
             android:name=".core.LocalApplication"
@@ -14,19 +30,29 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.Fizznap">
-
-        <!-- Activities -->
-
         <activity
-                android:name=".ui.views.HomeActivity"
+                android:name=".GuardActivity"
                 android:exported="true">
-
-            <!-- INFO: Configure as startup activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+                android:name=".ui.views.HomeActivity"
+                android:exported="false" />
+        
+        <!-- Providers -->
+
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.fileprovider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/directory_paths" />
+        </provider>
     </application>
 </manifest>

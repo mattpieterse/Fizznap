@@ -39,7 +39,7 @@ object ImageFileUtil {
      */
     fun getStorageDirectory(caller: FragmentActivity): File {
         return File(
-            caller.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "BoostaCam"
+            caller.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "Fizznap"
         ).apply {
             if (!exists()) {
                 mkdirs()

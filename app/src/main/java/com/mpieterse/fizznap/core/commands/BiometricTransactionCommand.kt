@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.mpieterse.fizznap.core.models.BiometricUiHost
 
-class BiometricTransactionUseCase(
+class BiometricTransactionCommand(
     private val caller: FragmentActivity, private val uiHost: BiometricUiHost
 ) {
 

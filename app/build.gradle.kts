@@ -86,4 +86,8 @@ dependencies {
     // Biometric Authentication
     
     implementation(libs.androidx.biometric)
+    
+    // Glide
+
+    implementation(libs.glide)
 }
